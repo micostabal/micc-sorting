@@ -1,4 +1,7 @@
 # micc-sorting
+A vite/vue app to visualize sorting algorithms
+
+## micc-sorting
 
 This template should help get you started developing with Vue 3 in Vite.
 

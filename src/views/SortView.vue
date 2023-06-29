@@ -3,6 +3,7 @@
 
 <template>
   <main>
-    <p>Just a p tag here...</p>
+    <p>Sorting here...</p>
   </main>
 </template>
+
