@@ -12,8 +12,22 @@ const max_value = computed((): number => {
 
 <template>
   <div
-    class="w-fit h-full bg-yellow flex flex-row justify-center items-end space-x-4 border border-lime-green"
-    :style="{ height: '300px'}"
+    class="
+      w-fit
+      h-full
+      bg-yellow
+      flex
+      flex-row
+      justify-center
+      items-end 
+      space-x-4
+      border
+      border-radius-5
+      rounded
+      p-5
+      border-8
+      border-lime-green"
+    :style="{ height: '350px'}"
   >
     <SortableBar v-for="value in raw_values"
       v-bind:key="value" :quantity=value :max_quantity=max_value></SortableBar>

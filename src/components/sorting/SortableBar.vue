@@ -6,15 +6,30 @@ const props = defineProps<{
   max_quantity: number
 }>()
 
+const DIFFERENCE = 25;
+const TOTAL_HEIGHT = 300;
+
 const computed_height = computed((): number => {
-  return Math.round(300 * (props.quantity / props.max_quantity)) + 17;
+  return Math.round(
+    DIFFERENCE + (TOTAL_HEIGHT - DIFFERENCE)
+     * ( props.quantity / props.max_quantity)
+  );
 })
 
 </script>
 
 <template>
   <div
-    class="bg-sky-500/75 w-24 shadow rounded flex items-center justify-center"
+    class="
+      bg-sky-500/75
+      w-20
+      shadow
+      rounded
+      flex
+      items-center
+      justify-center
+      border-2
+      hover:border-red-800"
     :style="{ height: `${computed_height}px`}"
     >
     <p><b>{{ quantity }}</b></p>
