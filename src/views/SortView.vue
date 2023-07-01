@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import BarContainer from '../components/sorting/BarContainer.vue'
 
 const DEFAULT_VALUES = [10, 45, 0, 34, 100, 66];
 
-const message = ref<string>("");
+const message = ref("");
 const values = ref(DEFAULT_VALUES);
 
-const update_values = (): void => {
+watch(message, (newMessage, oldMessage): void => {
+  console.log(newMessage);
   
-  if (!message.value) {
-    values.value= DEFAULT_VALUES;
+  if (!newMessage) {
+    values.value = DEFAULT_VALUES;
   }
-  const split_result: number[] = message.value.split(',').map( el => parseInt(el));
-  if (split_result.length > 1) {
-    values.value = split_result;
-  }
-  values.value = DEFAULT_VALUES;
-};
+  const split_result: number[] = newMessage.split(',').map(el => parseInt(el));
+  
+  values.value = split_result.length > 1 ? split_result
+   : DEFAULT_VALUES;
+})
 
 const sort_values = () => {
   values.value.sort();
