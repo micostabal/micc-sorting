@@ -2,14 +2,12 @@
 import { ref, watch } from 'vue';
 import BarContainer from '../components/sorting/BarContainer.vue'
 
-const DEFAULT_VALUES = [10, 45, 0, 34, 100, 66];
+const DEFAULT_VALUES = [ 0, 10, 45, 34, 100, 66];
 
-const message = ref("");
-const values = ref(DEFAULT_VALUES);
+const message = ref<string>("");
+const values = ref<number[]>(DEFAULT_VALUES);
 
-watch(message, (newMessage, oldMessage): void => {
-  console.log(newMessage);
-  
+watch(message, (newMessage: string, oldMessage: string): void => {
   if (!newMessage) {
     values.value = DEFAULT_VALUES;
   }
@@ -17,10 +15,11 @@ watch(message, (newMessage, oldMessage): void => {
   
   values.value = split_result.length > 1 ? split_result
    : DEFAULT_VALUES;
-})
+});
 
 const sort_values = () => {
-  values.value.sort();
+  [values.value[0], values.value[1]] = [values.value[1], values.value[0]];
+  // values.value.sort();
 }
 
 </script>

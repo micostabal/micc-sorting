@@ -29,7 +29,13 @@ const max_value = computed((): number => {
       border-lime-green"
     :style="{ height: '350px'}"
   >
-    <SortableBar v-for="value in raw_values"
-      v-bind:key="value" :quantity=value :max_quantity=max_value></SortableBar>
+    <SortableBar
+      v-for="value in raw_values"
+      v-bind:key="value"
+      :quantity=value
+      :max_quantity=max_value
+      :in_transition=false
+    >
+    </SortableBar>
   </div>
 </template>
